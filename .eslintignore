@@ -1,3 +1,5 @@
-./webpackConfig
-./bin
-./www
+dist
+node_modules
+coverage
+webpack.*.js
+*Server.js

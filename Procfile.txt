@@ -1,8 +1,0 @@
-﻿web: node web.js
-
-I'd like to deivde the two milestones for this job.
-First milestone is webapp without only Instagram oAuth and Twilio SMS verification.
-Second mileston is full web app
-
-First milestone is $1k
-Second milestone is $500
