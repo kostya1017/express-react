@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-   "scripts": {
+  "scripts": {
     "initdb": "node init.js",
     "start": "node index.js",
     "test": "NODE_ENV=test node_modules/mocha/bin/mocha --recursive --compilers js:babel-register"
@@ -50,9 +50,5 @@
     "webpack": "^1.12.10",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0"
-  },
-   "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
   }
 }
