@@ -2,11 +2,9 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'source-map',
 
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
     './src/entry'
   ],
 
@@ -17,8 +15,13 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    })
   ],
 
   resolve: {
@@ -27,17 +30,15 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx$/,
-        loader: 'react-hot!babel?stage=0',
-        include: path.join(__dirname, 'src') },
-      { test: /\.js$/,
+      { test: /\.jsx?$/,
         loader: 'babel?stage=0',
         include: path.join(__dirname, 'src') },
+      { test: /\.js?$/,
+        loader: 'babel?stage=0',
+        exclude: /node_modules/ },
       { test: /\.scss?$/,
         loader: 'style!css!sass',
         include: path.join(__dirname, 'css') },
-      { test: /\.css$/,
-        loader: 'style!css' }
     ]
   }
 }
