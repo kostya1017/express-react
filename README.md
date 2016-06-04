@@ -1,29 +1,4 @@
-# Quiz
+# Webpack-React-Heroku Boilerplate
 
-Quiz ES6 web app built with Node.js, Express and MongoDB on the backend and React, React-Router, Redux + Immutable on the frontend.
-
-## Usage
-
-Node.js version 5.2.0, MongoDB version 3.2.0
-
-Install dependencies
-
-`npm install`
-
-Start MongoDB
-
-`mongod`
-
-Run tests
-
-`npm test`
-
-Populate db with questions
-
-`npm run initdb`
-
-Start server
-
-`npm start`
-
-Open web browser @ localhost:8000
+Heroku deployable boilerplate for React/Flux/Webpack apps.
+This sample is a reference to this [post](http://ditrospecta.com/javascript/react/es6/webpack/heroku/2015/08/08/deploying-react-webpack-heroku.html). 
