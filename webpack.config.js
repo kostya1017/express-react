@@ -7,37 +7,37 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/entry'
+    './src/client/index.js'
   ],
 
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/public/'
+    publicPath: '/static/'
   },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
 
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
+
 
   module: {
-    loaders: [
-      { test: /\.jsx$/,
-        loader: 'react-hot!babel?stage=0',
-        include: path.join(__dirname, 'src') },
-      { test: /\.js$/,
-        loader: 'babel?stage=0',
-        include: path.join(__dirname, 'src') },
-      { test: /\.scss?$/,
-        loader: 'style!css!sass',
-        include: path.join(__dirname, 'css') },
-      { test: /\.css$/,
-        loader: 'style!css' }
-    ]
+    loaders: [{
+      test: /\.js$/,
+      loaders: ['babel-loader'],
+      exclude: /node_modules/,
+      include: path.join(__dirname, 'src', 'client'),
+    },
+    {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader',
+    },
+    {
+      test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+      loader: 'url-loader?limit=100000]',
+    }]
   }
 }
