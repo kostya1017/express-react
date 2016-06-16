@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import mongoose from 'mongoose';
 import { Question, Response } from '../../src/server/models';
 import { start } from '../../src/server';
+//import { start } from '../../src/server';
 
 describe('api', () => {
   let server;
